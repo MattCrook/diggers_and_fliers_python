@@ -19,10 +19,10 @@ class Habitat:
             animal_dict[f"{animal}"] = []
         for i in self.animals:
             animal_dict[f"{i.type}"].append(i.name.capitalize())
-        first_draft = [f"{a.capitalize()}s ({' and '.join([', '.join(v[:-1]),v[-1]] if len(v) > 2 else v)})" for a in animals for k,
+        final_sentence = [f"{a.capitalize()}s ({' and '.join([', '.join(v[:-1]),v[-1]] if len(v) > 2 else v)})" for a in animals for k,
                        v in animal_dict.items() if k == a]
 
-        animal_display_str = ' and '.join([', '.join(
-            first_draft[:-1]), first_draft[-1]] if len(first_draft) > 2 else first_draft)
+        animal_str = ' and '.join([', '.join(
+            final_sentence[:-1]), final_sentence[-1]] if len(final_sentence) > 2 else final_sentence)
 
-        return f"\n This container holds a category of animals: {self.__type} : and is called {self.name} and has the following animals in it: {animal_display_str} \n \n"
+        return f"\n This container holds a category of animals: {self.__type} : and is called {self.name} and has the following animals in it: {animal_str} \n \n"
